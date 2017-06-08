@@ -29,13 +29,13 @@ settings = dict(
 
 handlers = [
     # App
-    url(r"", DashboardView, name='main'),
-    url(r"dashboard", DashboardView, name='dashboard'),
-    url(r"worker/(.+)", WorkerView, name='worker'),
-    url(r"task/(.+)", TaskView, name='task'),
-    url(r"tasks", TasksView, name='tasks'),
-    url(r"tasks/datatable", TasksDataTable),
-    url(r"broker", BrokerView, name='broker'),
+    url(r"/", DashboardView, name='main'),
+    url(r"/dashboard", DashboardView, name='dashboard'),
+    url(r"/worker/(.+)", WorkerView, name='worker'),
+    url(r"/task/(.+)", TaskView, name='task'),
+    url(r"/tasks", TasksView, name='tasks'),
+    url(r"/tasks/datatable", TasksDataTable),
+    url(r"/broker", BrokerView, name='broker'),
     # Worker API
     (r"/api/workers", workers.ListWorkers),
     (r"/api/worker/shutdown/(.+)", control.WorkerShutDown),
@@ -71,7 +71,7 @@ handlers = [
     # WebSocket Updates
     (r"/update-dashboard", DashboardUpdateHandler),
     # Monitors
-    url(r"monitor", monitor.Monitor, name='monitor'),
+    url(r"/monitor", monitor.Monitor, name='monitor'),
     (r"/monitor/succeeded-tasks", monitor.SucceededTaskMonitor),
     (r"/monitor/failed-tasks", monitor.FailedTaskMonitor),
     (r"/monitor/completion-time", monitor.TimeToCompletionMonitor),
